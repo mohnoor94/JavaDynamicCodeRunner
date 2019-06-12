@@ -38,7 +38,7 @@ public class Demo {
                 .build();
 
         CustomAction test6 = builder.newAction("Test 6")
-                .importClass("java.util.HashSet")
+                .importing("java.util.HashSet")
                 .withCode("HashSet<String> values = new HashSet<>();\n" +
                         "values.add(\"hello\");\n" +
                         "values.add(\"world\");\n" +
@@ -47,8 +47,8 @@ public class Demo {
                 .build();
 
         CustomAction test7 = builder.newAction("Test 7")
-                .withSuperClass("DummySuperClass")
-                .importClass("com.abukhleif.www.jdci.demo.DummySuperClass")
+                .extend("DummySuperClass")
+                .importing("com.abukhleif.www.jdci.demo.DummySuperClass")
                 .withCode("doSomething();")
                 .build();
 
@@ -61,6 +61,7 @@ public class Demo {
 
         startSection("Test 4 - Update System Values");
         test4.execute();
+
         // we modify system properties using a custom code!! =D
         System.out.println("Node Properties Outside our CustomAction:: ");
         NodeProperties.getNodeProperties().forEach((k, v) -> System.out.println(String.format("%s: %s", k, v)));

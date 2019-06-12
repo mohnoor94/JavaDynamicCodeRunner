@@ -21,7 +21,7 @@ public class Import {
         if (libraries != null) this.libraries.addAll(libraries);
     }
 
-    //TODO Add amy default imports you need all the times here!
+    //TODO Add any default imports you need all the times here!
     private List<Library> getDefault() {
         return List.of(
                 new Library("com.abukhleif.www.jdci.injection.Parameter"),
